@@ -39,26 +39,26 @@ namespace ctc
             this.button_location = new System.Windows.Forms.Button();
             this.location = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.filename_format = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
             this.FileType.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileType
@@ -83,6 +83,7 @@ namespace ctc
             this.type_gif.TabIndex = 3;
             this.type_gif.Text = "gif";
             this.type_gif.UseVisualStyleBackColor = true;
+            this.type_gif.Click += new System.EventHandler(this.apply_button_enable);
             // 
             // type_jpg
             // 
@@ -93,6 +94,7 @@ namespace ctc
             this.type_jpg.TabIndex = 2;
             this.type_jpg.Text = "jpg";
             this.type_jpg.UseVisualStyleBackColor = true;
+            this.type_jpg.Click += new System.EventHandler(this.apply_button_enable);
             // 
             // type_png
             // 
@@ -103,6 +105,7 @@ namespace ctc
             this.type_png.TabIndex = 1;
             this.type_png.Text = "png";
             this.type_png.UseVisualStyleBackColor = true;
+            this.type_png.Click += new System.EventHandler(this.apply_button_enable);
             // 
             // type_bmp
             // 
@@ -115,6 +118,7 @@ namespace ctc
             this.type_bmp.TabStop = true;
             this.type_bmp.Text = "bmp";
             this.type_bmp.UseVisualStyleBackColor = true;
+            this.type_bmp.Click += new System.EventHandler(this.apply_button_enable);
             // 
             // groupBox1
             // 
@@ -131,10 +135,11 @@ namespace ctc
             // 
             this.button_location.Location = new System.Drawing.Point(226, 21);
             this.button_location.Name = "button_location";
-            this.button_location.Size = new System.Drawing.Size(24, 23);
+            this.button_location.Size = new System.Drawing.Size(24, 24);
             this.button_location.TabIndex = 1;
             this.button_location.Text = "...";
             this.button_location.UseVisualStyleBackColor = true;
+            this.button_location.Click += new System.EventHandler(this.button_location_Click);
             // 
             // location
             // 
@@ -142,6 +147,7 @@ namespace ctc
             this.location.Name = "location";
             this.location.Size = new System.Drawing.Size(214, 23);
             this.location.TabIndex = 0;
+            this.location.TextChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // groupBox2
             // 
@@ -154,51 +160,15 @@ namespace ctc
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filename";
             // 
-            // filename_format
+            // tabControl1
             // 
-            this.filename_format.Location = new System.Drawing.Point(7, 23);
-            this.filename_format.Name = "filename_format";
-            this.filename_format.Size = new System.Drawing.Size(339, 23);
-            this.filename_format.TabIndex = 0;
-            this.filename_format.Text = "{sequence}";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(128, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(290, 353);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Apply";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(209, 353);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(331, 117);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Other";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(7, 53);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(339, 145);
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -218,69 +188,15 @@ namespace ctc
             this.tabPage1.Text = "Components";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button11
             // 
-            this.button6.Location = new System.Drawing.Point(4, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "{sequence}";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(7, 53);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(339, 145);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(85, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "{Year}";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(85, 33);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "{Month}";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(85, 62);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "{Day}";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(166, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "{hour}";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(166, 33);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "{min}";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(166, 91);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 7;
+            this.button11.Text = "{msec}";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.component_button_Click);
             // 
             // button10
             // 
@@ -290,15 +206,117 @@ namespace ctc
             this.button10.TabIndex = 6;
             this.button10.Text = "{sec}";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.component_button_Click);
             // 
-            // button11
+            // button9
             // 
-            this.button11.Location = new System.Drawing.Point(166, 91);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "{msec}";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button9.Location = new System.Drawing.Point(166, 33);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "{min}";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(166, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "{hour}";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(85, 62);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "{Day}";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(85, 33);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "{Month}";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(85, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "{Year}";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(4, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "{sequence}";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.component_button_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(331, 117);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Other";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // filename_format
+            // 
+            this.filename_format.Location = new System.Drawing.Point(7, 23);
+            this.filename_format.Name = "filename_format";
+            this.filename_format.Size = new System.Drawing.Size(339, 23);
+            this.filename_format.TabIndex = 0;
+            this.filename_format.Text = "{sequence}";
+            this.filename_format.TextChanged += new System.EventHandler(this.apply_button_enable);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(128, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(290, 353);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Apply";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(209, 353);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Cancel";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form2
             // 
@@ -322,8 +340,8 @@ namespace ctc
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
