@@ -20,6 +20,9 @@ namespace ctc
         static public ImageFormat FILE_TYPE = ImageFormat.Jpeg;
         static public byte LOCATION_TYPE = 0;  // My Pictures
         static public string LOCATION = @"";
+        static public List<Token> TOKENS = new List<Token>() {
+            new Token(TokenKind.Sequence),
+        };
 
         static private uint SEQUENCE = 0;
 
@@ -43,6 +46,8 @@ namespace ctc
             } else if (file_type == "gif") {
                 FILE_TYPE = ImageFormat.Gif;
             }
+            string filename_format = ConfigurationManager.AppSettings["filename_format"];
+            tokenize(filename_format);
 
             // prepare location
             if (LOCATION_TYPE == 0) {
@@ -76,16 +81,7 @@ namespace ctc
             if (Clipboard.ContainsImage() && !DIALOG_OPENING) {
                 Image img = Clipboard.GetImage();
                 if (img is not null) {
-                    string filename = "";
-                    if (FILE_TYPE == ImageFormat.Bmp) {
-                        filename = $"{SEQUENCE++}.bmp";
-                    } else if (FILE_TYPE == ImageFormat.Png) {
-                        filename = $"{SEQUENCE++}.png";
-                    } else if (FILE_TYPE == ImageFormat.Jpeg) {
-                        filename = $"{SEQUENCE++}.jpg";
-                    } else if (FILE_TYPE == ImageFormat.Gif) {
-                        filename = $"{SEQUENCE++}.gif";
-                    }
+                    string filename = compile_filename();
 
                     if (LOCATION_TYPE == 2) {
                         DIALOG_OPENING = true;
@@ -105,6 +101,98 @@ namespace ctc
                     Clipboard.Clear();
                 }
             }
+        }
+
+        static public bool tokenize(string format)
+        {
+            List<Token> old_tokens = TOKENS;
+            TOKENS.Clear();
+            char[] f = format.ToCharArray();
+            char[] invalid_chars = System.IO.Path.GetInvalidFileNameChars();
+
+            void invalid_format() {
+                MessageBox.Show("invalid format: " + format);
+                TOKENS = old_tokens;
+            }
+
+            for (uint idx = 0; idx < f.Length; ++idx) {
+                if (f[idx] == '{') {
+                    string keyword = "";
+                    while (idx+1 < f.Length && f[idx+1] != '}') {
+                        keyword += f[++idx];
+                    }
+                    if (f.Length <= idx+1 && f[idx] != '}') {
+                        invalid_format();
+                        return false;
+                    }
+                    switch (keyword) {
+                        case "sequence": TOKENS.Add(new Token(TokenKind.Sequence));    break;
+                        case "Year":     TOKENS.Add(new Token(TokenKind.Year));        break;
+                        case "Month":    TOKENS.Add(new Token(TokenKind.Month));       break;
+                        case "Day":      TOKENS.Add(new Token(TokenKind.Day));         break;
+                        case "hour":     TOKENS.Add(new Token(TokenKind.Hour));        break;
+                        case "min":      TOKENS.Add(new Token(TokenKind.Minute));      break;
+                        case "sec":      TOKENS.Add(new Token(TokenKind.Second));      break;
+                        case "msec":     TOKENS.Add(new Token(TokenKind.MilliSecond)); break;
+                        default:
+                            invalid_format();
+                            return false;
+                    }
+                    // expect '}'
+                    ++idx;
+                    continue;
+                }
+
+                string str = f[idx].ToString();
+                while (idx+1 < f.Length && f[idx+1] != '{') {
+                    str += f[++idx];
+                }
+                int invalid_idx = str.IndexOfAny(invalid_chars);
+                if (0 <= invalid_idx) {
+                    MessageBox.Show("invalid charactor: '" + str[invalid_idx] + "'");
+                    TOKENS = old_tokens;
+                    return false;
+                }
+                TOKENS.Add(new Token(TokenKind.String, str));
+            }
+
+            return true;
+        }
+
+        static private string compile_filename()
+        {
+            string filename = "";
+            var now = DateTime.Now;
+
+            foreach (Token token in TOKENS) {
+                switch (token.kind) {
+                    case TokenKind.String:      filename += token.str;       break;
+                    case TokenKind.Sequence:    filename += SEQUENCE++;      break;
+                    case TokenKind.Year:        filename += now.Year;        break;
+                    case TokenKind.Month:       filename += now.Month;       break;
+                    case TokenKind.Day:         filename += now.Day;         break;
+                    case TokenKind.Hour:        filename += now.Hour;        break;
+                    case TokenKind.Minute:      filename += now.Minute;      break;
+                    case TokenKind.Second:      filename += now.Second;      break;
+                    case TokenKind.MilliSecond: filename += now.Millisecond; break;
+                }
+            }
+
+            // Append extension
+            filename += ".";
+            if (FILE_TYPE == ImageFormat.Bmp) {
+                filename += "bmp";
+            } else if (FILE_TYPE == ImageFormat.Png) {
+                filename += "png";
+            } else if (FILE_TYPE == ImageFormat.Jpeg) {
+                filename += "jpg";
+            } else if (FILE_TYPE == ImageFormat.Gif) {
+                filename += "gif";
+            } else {
+                // unreachable
+            }
+
+            return filename;
         }
     }
 }

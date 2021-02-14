@@ -47,7 +47,12 @@ namespace ctc
 
         private bool apply()
         {
-            // apply location
+            // Apply filename_format
+            if (Form1.tokenize(filename_format.Text) is false) {
+                return false;
+            }
+
+            // Apply location
             if (radioButton1.Checked) {
                 Form1.LOCATION_TYPE = 0;
                 Form1.LOCATION = @"%userprofile%\Pictures\";
@@ -69,7 +74,7 @@ namespace ctc
             }
             Form1.LOCATION = Environment.ExpandEnvironmentVariables(Form1.LOCATION);
 
-            // apply filetype
+            // Apply filetype
             string filetype = "";
             if (type_bmp.Checked) {
                 filetype = "bmp";
@@ -85,6 +90,7 @@ namespace ctc
                 Form1.FILE_TYPE = ImageFormat.Gif;
             }
 
+            // Save
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["location"].Value = location.Text;
             config.AppSettings.Settings["location_type"].Value = Form1.LOCATION_TYPE.ToString();
@@ -113,12 +119,23 @@ namespace ctc
             } else if (Form1.FILE_TYPE == ImageFormat.Gif) {
                 type_gif.Checked = true;
             }
+
+            filename_format.Text = ConfigurationManager.AppSettings["filename_format"];
+            filename_format.SelectionStart = filename_format.Text.Length;
         }
 
         private void component_button_Click(object sender, EventArgs e)
         {
-            filename_format.Text += (sender as Button).Text;
-            apply_button_enable(sender, e);
+            int selection_start = filename_format.SelectionStart;
+            filename_format.Text = filename_format.Text.Insert(
+                selection_start,
+                (sender as Button).Text
+            );
+            filename_format.Select(
+                selection_start + (sender as Button).Text.Length,
+                0
+            );
+            filename_format.Focus();
         }
 
         private void apply_button_enable(object sender, EventArgs e)
