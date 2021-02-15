@@ -34,9 +34,9 @@ namespace ctc
             SEQUENCE = uint.Parse(today);
 
             // load settings
-            LOCATION = ConfigurationManager.AppSettings["location"];
-            LOCATION_TYPE = byte.Parse(ConfigurationManager.AppSettings["location_type"]);
-            string file_type = ConfigurationManager.AppSettings["filetype"];
+            LOCATION = Properties.Settings.Default.location;
+            LOCATION_TYPE = Properties.Settings.Default.location_type;
+            string file_type = Properties.Settings.Default.filetype;
             if (file_type == "bmp") {
                 FILE_TYPE = ImageFormat.Bmp;
             } else if (file_type == "png") {
@@ -46,7 +46,7 @@ namespace ctc
             } else if (file_type == "gif") {
                 FILE_TYPE = ImageFormat.Gif;
             }
-            string filename_format = ConfigurationManager.AppSettings["filename_format"];
+            string filename_format = Properties.Settings.Default.filename_format;
             tokenize(filename_format);
 
             // prepare location

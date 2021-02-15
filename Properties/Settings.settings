@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ctc.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%USERPROFILE%\Pictures</Value>
+    </Setting>
+    <Setting Name="location_type" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="filetype" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jpg</Value>
+    </Setting>
+    <Setting Name="filename_format" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{sequence}</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

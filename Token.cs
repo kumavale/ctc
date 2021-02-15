@@ -9,7 +9,9 @@ namespace ctc
     public class Token
     {
         public TokenKind kind { get; }
+#nullable enable
         public string? str    { get; }
+#nullable disable
 
         public Token(TokenKind kind)
         {

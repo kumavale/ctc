@@ -91,19 +91,18 @@ namespace ctc
             }
 
             // Save
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["location"].Value = location.Text;
-            config.AppSettings.Settings["location_type"].Value = Form1.LOCATION_TYPE.ToString();
-            config.AppSettings.Settings["filetype"].Value = filetype;
-            config.AppSettings.Settings["filename_format"].Value = filename_format.Text;
-            config.Save();
+            Properties.Settings.Default.location        = location.Text;
+            Properties.Settings.Default.location_type   = Form1.LOCATION_TYPE;
+            Properties.Settings.Default.filetype        = filetype;
+            Properties.Settings.Default.filename_format = filename_format.Text;
+            Properties.Settings.Default.Save();
 
             button3.Enabled = false;
             return true;
         }
 
         private void load_setting() {
-            location.Text = ConfigurationManager.AppSettings["location"];
+            location.Text = Properties.Settings.Default.location;
 
                  if (Form1.LOCATION_TYPE == 0) { radioButton1.Checked = true; }
             else if (Form1.LOCATION_TYPE == 1) { radioButton2.Checked = true; }
@@ -120,7 +119,7 @@ namespace ctc
                 type_gif.Checked = true;
             }
 
-            filename_format.Text = ConfigurationManager.AppSettings["filename_format"];
+            filename_format.Text = Properties.Settings.Default.filename_format;
             filename_format.SelectionStart = filename_format.Text.Length;
         }
 
