@@ -15,31 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_105C17004AFE455381DD6A6468E40FE1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4A79023F22AE4C9BB358568D653A5C1F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_54337AFE79284D05B9E1BFB16E09B4CB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5E489D34B579182433E9B64125D49356"
-        "OwnerKey" = "8:_AE9EA8A7CB754309BA0E8A28E9AC05A0"
+        "OwnerKey" = "8:_AC407218B01A4D84A957B4AD1E984CC8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_67D5F41E92AE4FB080C014E62DB71FDA"
+        "MsmKey" = "8:_65BAB9E41C0E4457BB7001215E56FF01"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,13 +33,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AE9EA8A7CB754309BA0E8A28E9AC05A0"
+        "MsmKey" = "8:_8FD807C2BE5345C7AEACCD4FDEF1E8B6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CC1A940E2C3B483B98FA29D94882EE24"
+        "MsmKey" = "8:_A1F30738FB4B487892DC162E347E25C4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A9B380310023404EB3C1E080787D92F9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AC407218B01A4D84A957B4AD1E984CC8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C61D9FD6AF3C41E9B4B54D6A82FE20D6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -76,7 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AE9EA8A7CB754309BA0E8A28E9AC05A0"
+        "OwnerKey" = "8:_AC407218B01A4D84A957B4AD1E984CC8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
                 {
                 "Name" = "8:.NET Core"
                 "Message" = "8:[VSDNETCOREMSG]"
-                "FrameworkVersion" = "8:5.0.3"
+                "FrameworkVersion" = "8:5.0.3 "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:https://download.visualstudio.microsoft.com/download/pr/23185b06-bc63-402c-b94e-3bdfa999022b/c802fbf2c5a7511c13b764fcb295dba9/dotnet-runtime-5.0.3-win-x64.zip"
                 "IsNETCore" = "11:TRUE"
@@ -201,66 +201,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_105C17004AFE455381DD6A6468E40FE1"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.runtimeconfig.json"
-            "TargetName" = "8:ctc.runtimeconfig.json"
-            "Tag" = "8:"
-            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4A79023F22AE4C9BB358568D653A5C1F"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.runtimeconfig.dev.json"
-            "TargetName" = "8:ctc.runtimeconfig.dev.json"
-            "Tag" = "8:"
-            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54337AFE79284D05B9E1BFB16E09B4CB"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.exe"
-            "TargetName" = "8:ctc.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E489D34B579182433E9B64125D49356"
             {
             "AssemblyRegister" = "3:1"
@@ -292,10 +232,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_67D5F41E92AE4FB080C014E62DB71FDA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65BAB9E41C0E4457BB7001215E56FF01"
             {
-            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.pdb"
-            "TargetName" = "8:ctc.pdb"
+            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.runtimeconfig.dev.json"
+            "TargetName" = "8:ctc.runtimeconfig.dev.json"
             "Tag" = "8:"
             "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
             "Condition" = "8:"
@@ -343,14 +283,74 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE9EA8A7CB754309BA0E8A28E9AC05A0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8FD807C2BE5345C7AEACCD4FDEF1E8B6"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.runtimeconfig.json"
+            "TargetName" = "8:ctc.runtimeconfig.json"
+            "Tag" = "8:"
+            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A1F30738FB4B487892DC162E347E25C4"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.exe"
+            "TargetName" = "8:ctc.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9B380310023404EB3C1E080787D92F9"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.deps.json"
+            "TargetName" = "8:ctc.deps.json"
+            "Tag" = "8:"
+            "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AC407218B01A4D84A957B4AD1E984CC8"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ctc, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AE9EA8A7CB754309BA0E8A28E9AC05A0"
+                    "_AC407218B01A4D84A957B4AD1E984CC8"
                     {
                     "Name" = "8:ctc.dll"
                     "Attributes" = "3:512"
@@ -374,10 +374,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC1A940E2C3B483B98FA29D94882EE24"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C61D9FD6AF3C41E9B4B54D6A82FE20D6"
             {
-            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.deps.json"
-            "TargetName" = "8:ctc.deps.json"
+            "SourcePath" = "8:..\\bin\\Release\\net5.0-windows\\ctc.pdb"
+            "TargetName" = "8:ctc.pdb"
             "Tag" = "8:"
             "Folder" = "8:_D15D08957F064D9C87EB29923A4479B2"
             "Condition" = "8:"
@@ -471,7 +471,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Capture The Clipboard"
         "ProductCode" = "8:{A4B9FC2F-75D0-48BF-B182-327C6AC7C29E}"
-        "PackageCode" = "8:{EADFA854-E23F-4D75-BB2D-7995F6EAA941}"
+        "PackageCode" = "8:{EE03918E-0945-47E6-8990-FD01D5B49AC3}"
         "UpgradeCode" = "8:{147915B9-DA01-4F4C-8469-8F7474D66230}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -591,21 +591,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4D7AB780C5BA4F158E29DEA3C06572CB"
-            {
-            "Name" = "8:Capture The Clipboard"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_54337AFE79284D05B9E1BFB16E09B4CB"
-            "Folder" = "8:_6D3F9070E426496490CB92C1F01B0B87"
-            "WorkingFolder" = "8:_D15D08957F064D9C87EB29923A4479B2"
-            "Icon" = "8:_D95B38BBCB834E84A2CDE45BFDA5EDF3"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5EB10DA5886043FF856A750FBD4BCBF1"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CBC873EA20634F529D5AC6B9BC3ECFAC"
             {
             "Name" = "8:ctc"
             "Arguments" = "8:"
@@ -613,8 +599,22 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_54337AFE79284D05B9E1BFB16E09B4CB"
+            "Target" = "8:_A1F30738FB4B487892DC162E347E25C4"
             "Folder" = "8:_F4F31FBFB9E04A159100934E26D17DDC"
+            "WorkingFolder" = "8:_D15D08957F064D9C87EB29923A4479B2"
+            "Icon" = "8:_D95B38BBCB834E84A2CDE45BFDA5EDF3"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E835F3BEE3044EE890F3A9615238B39F"
+            {
+            "Name" = "8:Capture The Clipboard"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_A1F30738FB4B487892DC162E347E25C4"
+            "Folder" = "8:_6D3F9070E426496490CB92C1F01B0B87"
             "WorkingFolder" = "8:_D15D08957F064D9C87EB29923A4479B2"
             "Icon" = "8:_D95B38BBCB834E84A2CDE45BFDA5EDF3"
             "Feature" = "8:"

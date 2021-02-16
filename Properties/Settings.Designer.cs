@@ -70,5 +70,41 @@ namespace ctc.Properties {
                 this["filename_format"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ulong sequence {
+            get {
+                return ((ulong)(this["sequence"]));
+            }
+            set {
+                this["sequence"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte digits_of_sequence {
+            get {
+                return ((byte)(this["digits_of_sequence"]));
+            }
+            set {
+                this["digits_of_sequence"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ask_overwritten {
+            get {
+                return ((bool)(this["ask_overwritten"]));
+            }
+            set {
+                this["ask_overwritten"] = value;
+            }
+        }
     }
 }

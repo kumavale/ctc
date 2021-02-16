@@ -24,6 +24,11 @@ namespace ctc
             button3.Enabled = false;
         }
 
+        public void reflect_sequence()
+        {
+            numericUpDown1.Value = Form1.SEQUENCE;
+        }
+
         // OK
         private void button1_Click(object sender, EventArgs e)
         {
@@ -48,7 +53,7 @@ namespace ctc
         private bool apply()
         {
             // Apply filename_format
-            if (Form1.tokenize(filename_format.Text) is false) {
+            if (Token.tokenize(filename_format.Text) is false) {
                 return false;
             }
 
@@ -75,7 +80,7 @@ namespace ctc
             Form1.LOCATION = Environment.ExpandEnvironmentVariables(Form1.LOCATION);
 
             // Apply filetype
-            string filetype = "";
+            string filetype = null;
             if (type_bmp.Checked) {
                 filetype = "bmp";
                 Form1.FILE_TYPE = ImageFormat.Bmp;
@@ -90,11 +95,26 @@ namespace ctc
                 Form1.FILE_TYPE = ImageFormat.Gif;
             }
 
+            // Apply sequence number
+            Form1.SEQUENCE = (ulong)numericUpDown1.Value;
+
+            // Apply digits of sequence number
+            switch (comboBox1.Text) {
+                case "Auto": Form1.DIGITS_OF_SEQUENCE = 0; break;
+                default:     Form1.DIGITS_OF_SEQUENCE = byte.Parse(comboBox1.Text); break;
+            }
+
+            // Apply ask overwritten
+            Form1.ASK_OVERWRITTEN = checkBox1.Checked;
+
             // Save
-            Properties.Settings.Default.location        = location.Text;
-            Properties.Settings.Default.location_type   = Form1.LOCATION_TYPE;
-            Properties.Settings.Default.filetype        = filetype;
-            Properties.Settings.Default.filename_format = filename_format.Text;
+            Properties.Settings.Default.location           = location.Text;
+            Properties.Settings.Default.location_type      = Form1.LOCATION_TYPE;
+            Properties.Settings.Default.filetype           = filetype;
+            Properties.Settings.Default.filename_format    = filename_format.Text;
+            Properties.Settings.Default.sequence           = Form1.SEQUENCE;
+            Properties.Settings.Default.digits_of_sequence = Form1.DIGITS_OF_SEQUENCE;
+            Properties.Settings.Default.ask_overwritten    = Form1.ASK_OVERWRITTEN;
             Properties.Settings.Default.Save();
 
             button3.Enabled = false;
@@ -104,7 +124,7 @@ namespace ctc
         private void load_setting() {
             location.Text = Properties.Settings.Default.location;
 
-                 if (Form1.LOCATION_TYPE == 0) { radioButton1.Checked = true; }
+            if (Form1.LOCATION_TYPE == 0) { radioButton1.Checked = true; }
             else if (Form1.LOCATION_TYPE == 1) { radioButton2.Checked = true; }
             else if (Form1.LOCATION_TYPE == 2) { radioButton3.Checked = true; }
             else if (Form1.LOCATION_TYPE == 3) { radioButton4.Checked = true; }
@@ -121,6 +141,15 @@ namespace ctc
 
             filename_format.Text = Properties.Settings.Default.filename_format;
             filename_format.SelectionStart = filename_format.Text.Length;
+
+            numericUpDown1.Value = Form1.SEQUENCE;
+
+            switch (Form1.DIGITS_OF_SEQUENCE) {
+                case 0:  comboBox1.Text = "Auto"; break;
+                default: comboBox1.Text = Form1.DIGITS_OF_SEQUENCE.ToString(); break;
+            }
+
+            checkBox1.Checked = Form1.ASK_OVERWRITTEN;
         }
 
         private void component_button_Click(object sender, EventArgs e)

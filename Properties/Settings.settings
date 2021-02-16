@@ -14,5 +14,14 @@
     <Setting Name="filename_format" Type="System.String" Scope="User">
       <Value Profile="(Default)">{sequence}</Value>
     </Setting>
+    <Setting Name="sequence" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="digits_of_sequence" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ask_overwritten" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
