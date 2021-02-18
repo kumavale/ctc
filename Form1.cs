@@ -21,7 +21,7 @@ namespace ctc
         static public ImageFormat FILE_TYPE = ImageFormat.Jpeg;
         static public byte LOCATION_TYPE = 0;  // My Pictures
         static public string LOCATION = @"";
-        static public ulong SEQUENCE = 0;
+        static public uint SEQUENCE = 0;
         static public byte DIGITS_OF_SEQUENCE = 0;  // 0 == Auto
         static public bool ASK_OVERWRITTEN = false;
         static public List<Token> TOKENS = new List<Token>() {
@@ -82,16 +82,16 @@ namespace ctc
         }
 
         // Main loop
-        static bool DIALOG_OPENING = false;
+        static bool PROCESSING = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Clipboard.ContainsImage() && !DIALOG_OPENING) {
+            if (!PROCESSING && Clipboard.ContainsImage()) {
+                PROCESSING = true;
                 Image img = Clipboard.GetImage();
                 if (img is not null) {
                     string filename = Token.compile_filename();
 
                     if (LOCATION_TYPE == 2) {
-                        DIALOG_OPENING = true;
                         var dialog = new CommonOpenFileDialog() {
                             Title = "Open Folder",
                             RestoreDirectory = true,
@@ -100,11 +100,9 @@ namespace ctc
                         if (dialog.ShowDialog() == CommonFileDialogResult.Ok) {
                             img.Save(dialog.FileName + "\\" + filename, FILE_TYPE);
                         }
-                        DIALOG_OPENING = false;
                     } else {
                         string path = LOCATION + filename;
                         if (ASK_OVERWRITTEN && File.Exists(path)) {
-                            DIALOG_OPENING = true;
                             var result = MessageBox.Show(
                                 $"A file named \"{filename}\" already exists.\nDo you want to overwrite it?",
                                 "CTC",
@@ -115,7 +113,6 @@ namespace ctc
                             if (result is DialogResult.Yes) {
                                 img.Save(path, FILE_TYPE);
                             }
-                            DIALOG_OPENING = false;
                         } else {
                             img.Save(path, FILE_TYPE);
                         }
@@ -127,6 +124,7 @@ namespace ctc
                     img.Dispose();
                     Clipboard.Clear();
                 }
+                PROCESSING = false;
             }
         }
     }

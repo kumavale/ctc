@@ -14,7 +14,7 @@
     <Setting Name="filename_format" Type="System.String" Scope="User">
       <Value Profile="(Default)">{sequence}</Value>
     </Setting>
-    <Setting Name="sequence" Type="System.UInt64" Scope="User">
+    <Setting Name="sequence" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="digits_of_sequence" Type="System.Byte" Scope="User">

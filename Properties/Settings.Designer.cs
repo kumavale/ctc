@@ -74,9 +74,9 @@ namespace ctc.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public ulong sequence {
+        public uint sequence {
             get {
-                return ((ulong)(this["sequence"]));
+                return ((uint)(this["sequence"]));
             }
             set {
                 this["sequence"] = value;

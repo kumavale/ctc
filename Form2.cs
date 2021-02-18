@@ -96,7 +96,7 @@ namespace ctc
             }
 
             // Apply sequence number
-            Form1.SEQUENCE = (ulong)numericUpDown1.Value;
+            Form1.SEQUENCE = (uint)numericUpDown1.Value;
 
             // Apply digits of sequence number
             switch (comboBox1.Text) {
