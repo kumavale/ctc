@@ -105,7 +105,7 @@ namespace ctc
             this.type_gif.TabIndex = 3;
             this.type_gif.Text = "gif";
             this.type_gif.UseVisualStyleBackColor = true;
-            this.type_gif.Click += new System.EventHandler(this.apply_button_enable);
+            this.type_gif.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // type_jpg
             // 
@@ -116,7 +116,7 @@ namespace ctc
             this.type_jpg.TabIndex = 2;
             this.type_jpg.Text = "jpg";
             this.type_jpg.UseVisualStyleBackColor = true;
-            this.type_jpg.Click += new System.EventHandler(this.apply_button_enable);
+            this.type_jpg.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // type_png
             // 
@@ -127,20 +127,18 @@ namespace ctc
             this.type_png.TabIndex = 1;
             this.type_png.Text = "png";
             this.type_png.UseVisualStyleBackColor = true;
-            this.type_png.Click += new System.EventHandler(this.apply_button_enable);
+            this.type_png.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // type_bmp
             // 
             this.type_bmp.AutoSize = true;
-            this.type_bmp.Checked = true;
             this.type_bmp.Location = new System.Drawing.Point(6, 22);
             this.type_bmp.Name = "type_bmp";
             this.type_bmp.Size = new System.Drawing.Size(50, 19);
             this.type_bmp.TabIndex = 0;
-            this.type_bmp.TabStop = true;
             this.type_bmp.Text = "bmp";
             this.type_bmp.UseVisualStyleBackColor = true;
-            this.type_bmp.Click += new System.EventHandler(this.apply_button_enable);
+            this.type_bmp.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // groupBox1
             // 
@@ -166,10 +164,9 @@ namespace ctc
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(71, 19);
             this.radioButton4.TabIndex = 5;
-            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Location";
             this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.Click += new System.EventHandler(this.apply_button_enable);
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // radioButton3
             // 
@@ -178,10 +175,9 @@ namespace ctc
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(138, 19);
             this.radioButton3.TabIndex = 4;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Ask where to save file";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Click += new System.EventHandler(this.apply_button_enable);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // radioButton2
             // 
@@ -190,10 +186,9 @@ namespace ctc
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(68, 19);
             this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Desktop";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Click += new System.EventHandler(this.apply_button_enable);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // radioButton1
             // 
@@ -202,10 +197,9 @@ namespace ctc
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(87, 19);
             this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "My Pictures";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Click += new System.EventHandler(this.apply_button_enable);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // button_location
             // 
@@ -378,9 +372,11 @@ namespace ctc
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Ask if you want to overwritten the file";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Auto",
@@ -397,7 +393,7 @@ namespace ctc
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(69, 23);
             this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "Auto";
+            this.comboBox1.TextChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // label8
             // 
@@ -419,6 +415,7 @@ namespace ctc
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(69, 23);
             this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // label7
             // 
@@ -559,6 +556,7 @@ namespace ctc
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(290, 352);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -569,8 +567,10 @@ namespace ctc
             // 
             // Form2
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(377, 384);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -583,6 +583,7 @@ namespace ctc
             this.Name = "Form2";
             this.Text = "CTC - Settings";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.FileType.ResumeLayout(false);
             this.FileType.PerformLayout();
             this.groupBox1.ResumeLayout(false);

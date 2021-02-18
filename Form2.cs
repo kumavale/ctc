@@ -21,7 +21,12 @@ namespace ctc
         {
             InitializeComponent();
             load_setting();
-            button3.Enabled = false;
+            label5.Text = Application.ProductVersion;
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            button3.Enabled = false;  // Disable Apply button
         }
 
         public void reflect_sequence()

@@ -85,7 +85,7 @@ namespace ctc
         static bool PROCESSING = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!PROCESSING && Clipboard.ContainsImage()) {
+            while (!PROCESSING && Clipboard.ContainsImage()) {
                 PROCESSING = true;
                 Image img = Clipboard.GetImage();
                 if (img is not null) {
