@@ -106,5 +106,17 @@ namespace ctc.Properties {
                 this["ask_overwritten"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        public byte digits_of_rand {
+            get {
+                return ((byte)(this["digits_of_rand"]));
+            }
+            set {
+                this["digits_of_rand"] = value;
+            }
+        }
     }
 }

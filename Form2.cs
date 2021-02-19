@@ -109,6 +109,9 @@ namespace ctc
                 default:     Form1.DIGITS_OF_SEQUENCE = byte.Parse(comboBox1.Text); break;
             }
 
+            // Apply digits of random
+            Form1.DIGITS_OF_RAND = (byte)numericUpDown2.Value;
+
             // Apply ask overwritten
             Form1.ASK_OVERWRITTEN = checkBox1.Checked;
 
@@ -119,6 +122,7 @@ namespace ctc
             Properties.Settings.Default.filename_format    = filename_format.Text;
             Properties.Settings.Default.sequence           = Form1.SEQUENCE;
             Properties.Settings.Default.digits_of_sequence = Form1.DIGITS_OF_SEQUENCE;
+            Properties.Settings.Default.digits_of_rand     = Form1.DIGITS_OF_RAND;
             Properties.Settings.Default.ask_overwritten    = Form1.ASK_OVERWRITTEN;
             Properties.Settings.Default.Save();
 
@@ -153,6 +157,8 @@ namespace ctc
                 case 0:  comboBox1.Text = "Auto"; break;
                 default: comboBox1.Text = Form1.DIGITS_OF_SEQUENCE.ToString(); break;
             }
+
+            numericUpDown2.Value = Form1.DIGITS_OF_RAND;
 
             checkBox1.Checked = Form1.ASK_OVERWRITTEN;
         }

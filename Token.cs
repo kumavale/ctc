@@ -12,6 +12,7 @@ namespace ctc
     {
         String,
         Sequence,
+        Random,
         Year,
         Month,
         Day,
@@ -63,6 +64,7 @@ namespace ctc
                     }
                     switch (keyword) {
                         case "sequence": Form1.TOKENS.Add(new Token(TokenKind.Sequence));    break;
+                        case "rand":     Form1.TOKENS.Add(new Token(TokenKind.Random));      break;
                         case "Year":     Form1.TOKENS.Add(new Token(TokenKind.Year));        break;
                         case "Month":    Form1.TOKENS.Add(new Token(TokenKind.Month));       break;
                         case "Day":      Form1.TOKENS.Add(new Token(TokenKind.Day));         break;
@@ -104,6 +106,7 @@ namespace ctc
                 switch (token.kind) {
                     case TokenKind.String:      filename += token.str;       break;
                     case TokenKind.Sequence:    filename += $"{Form1.SEQUENCE++}".PadLeft(Form1.DIGITS_OF_SEQUENCE, '0'); break;
+                    case TokenKind.Random:      filename += random_string(); break;
                     case TokenKind.Year:        filename += now.Year;        break;
                     case TokenKind.Month:       filename += now.Month;       break;
                     case TokenKind.Day:         filename += now.Day;         break;
@@ -129,6 +132,14 @@ namespace ctc
             }
 
             return filename;
+        }
+
+        private static Random RAND = new Random();
+        private static string random_string()
+        {
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, Form1.DIGITS_OF_RAND)
+                .Select(s => s[RAND.Next(s.Length)]).ToArray());
         }
     }
 }

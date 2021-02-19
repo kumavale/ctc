@@ -18,17 +18,18 @@ namespace ctc
 {
     public partial class Form1 : Form
     {
-        static public ImageFormat FILE_TYPE = ImageFormat.Jpeg;
-        static public byte LOCATION_TYPE = 0;  // My Pictures
-        static public string LOCATION = @"";
-        static public uint SEQUENCE = 0;
-        static public byte DIGITS_OF_SEQUENCE = 0;  // 0 == Auto
-        static public bool ASK_OVERWRITTEN = false;
-        static public List<Token> TOKENS = new List<Token>() {
+        public static ImageFormat FILE_TYPE = ImageFormat.Jpeg;
+        public static byte LOCATION_TYPE = 0;  // My Pictures
+        public static string LOCATION = @"";
+        public static uint SEQUENCE = 0;
+        public static byte DIGITS_OF_SEQUENCE = 0;  // 0 == Auto
+        public static byte DIGITS_OF_RAND = 16;
+        public static bool ASK_OVERWRITTEN = false;
+        public static List<Token> TOKENS = new List<Token>() {
             new Token(TokenKind.Sequence),
         };
 
-        static private Form2 SETTING_FORM = null;
+        private static Form2 SETTING_FORM = null;
 
         public Form1()
         {
@@ -49,6 +50,7 @@ namespace ctc
             Token.tokenize(filename_format);
             SEQUENCE = Properties.Settings.Default.sequence;
             DIGITS_OF_SEQUENCE = Properties.Settings.Default.digits_of_sequence;
+            DIGITS_OF_RAND = Properties.Settings.Default.digits_of_rand;
             ASK_OVERWRITTEN = Properties.Settings.Default.ask_overwritten;
 
             // prepare location

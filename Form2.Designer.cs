@@ -45,6 +45,7 @@ namespace ctc
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -54,6 +55,8 @@ namespace ctc
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@ namespace ctc
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -231,7 +235,7 @@ namespace ctc
             this.groupBox2.Controls.Add(this.filename_format);
             this.groupBox2.Location = new System.Drawing.Point(13, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 200);
+            this.groupBox2.Size = new System.Drawing.Size(352, 227);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filename";
@@ -247,11 +251,12 @@ namespace ctc
             this.tabControl1.Location = new System.Drawing.Point(7, 53);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(339, 141);
+            this.tabControl1.Size = new System.Drawing.Size(339, 168);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button12);
             this.tabPage1.Controls.Add(this.button11);
             this.tabPage1.Controls.Add(this.button10);
             this.tabPage1.Controls.Add(this.button9);
@@ -263,10 +268,20 @@ namespace ctc
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(331, 113);
+            this.tabPage1.Size = new System.Drawing.Size(331, 140);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Components";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(4, 33);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 8;
+            this.button12.Text = "{rand}";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.component_button_Click);
             // 
             // button11
             // 
@@ -350,6 +365,8 @@ namespace ctc
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numericUpDown2);
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.label8);
@@ -358,15 +375,38 @@ namespace ctc
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(331, 113);
+            this.tabPage2.Size = new System.Drawing.Size(331, 140);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Other";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(121, 62);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(69, 23);
+            this.numericUpDown2.TabIndex = 6;
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.apply_button_enable);
+            this.numericUpDown2.TextChanged += new System.EventHandler(this.apply_button_enable);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 15);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Digits of rand";
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(4, 85);
+            this.checkBox1.Location = new System.Drawing.Point(3, 91);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(223, 19);
             this.checkBox1.TabIndex = 4;
@@ -416,6 +456,7 @@ namespace ctc
             this.numericUpDown1.Size = new System.Drawing.Size(69, 23);
             this.numericUpDown1.TabIndex = 1;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.apply_button_enable);
+            this.numericUpDown1.TextChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // label7
             // 
@@ -439,7 +480,7 @@ namespace ctc
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(331, 113);
+            this.tabPage3.Size = new System.Drawing.Size(331, 140);
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -534,7 +575,7 @@ namespace ctc
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(128, 352);
+            this.button1.Location = new System.Drawing.Point(128, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -545,7 +586,7 @@ namespace ctc
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(209, 352);
+            this.button2.Location = new System.Drawing.Point(209, 379);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -557,7 +598,7 @@ namespace ctc
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(290, 352);
+            this.button3.Location = new System.Drawing.Point(290, 379);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -571,7 +612,7 @@ namespace ctc
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(377, 384);
+            this.ClientSize = new System.Drawing.Size(377, 411);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -594,6 +635,7 @@ namespace ctc
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -646,5 +688,8 @@ namespace ctc
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label9;
     }
 }
