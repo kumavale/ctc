@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -30,6 +31,7 @@ namespace ctc
         };
 
         private static Form2 SETTING_FORM = null;
+        private static ClipBoardWatcher CBW;
 
         public Form1()
         {
@@ -64,12 +66,18 @@ namespace ctc
                 LOCATION += '\\';
             }
 
+            CBW = new ClipBoardWatcher();
+            CBW.DrawClipBoard += (object sender, EventArgs e) => {
+                save_image();
+            };
+
             InitializeComponent();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.sequence = SEQUENCE;
+            CBW.Dispose();
             Application.Exit();
         }
 
@@ -83,11 +91,10 @@ namespace ctc
             }
         }
 
-        // Main loop
         static bool PROCESSING = false;
-        private void timer1_Tick(object sender, EventArgs e)
+        private static void save_image()
         {
-            while (!PROCESSING && Clipboard.ContainsImage()) {
+            if (!PROCESSING && Clipboard.ContainsImage()) {
                 PROCESSING = true;
                 Image img = Clipboard.GetImage();
                 if (img is not null) {
@@ -130,4 +137,73 @@ namespace ctc
             }
         }
     }
+
+    public class ClipBoardWatcher : IDisposable
+    {
+        ClipBoardWatcherForm form;
+
+        public event EventHandler DrawClipBoard;
+
+        public ClipBoardWatcher()
+        {
+            form = new ClipBoardWatcherForm();
+            form.StartWatch(raiseDrawClipBoard);
+        }
+
+        private void raiseDrawClipBoard()
+        {
+            if (DrawClipBoard is not null) {
+                DrawClipBoard(this, EventArgs.Empty);
+            }
+        }
+
+        public void Dispose()
+        {
+            form.Dispose();
+        }
+
+        private class ClipBoardWatcherForm : Form
+        {
+            [DllImport("user32.dll")]
+            private static extern IntPtr SetClipboardViewer(IntPtr hwnd);
+            [DllImport("user32.dll")]
+            private static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+            [DllImport("user32.dll")]
+            private static extern bool ChangeClipboardChain(IntPtr hwnd, IntPtr hWndNext);
+
+            const int WM_DRAWCLIPBOARD = 0x0308;
+            const int WM_CHANGECBCHAIN = 0x030D;
+
+            IntPtr nextHandle;
+            System.Threading.ThreadStart proc;
+
+            public void StartWatch(System.Threading.ThreadStart proc)
+            {
+                this.proc = proc;
+                nextHandle = SetClipboardViewer(this.Handle);
+            }
+
+            protected override void WndProc(ref Message m)
+            {
+                if (m.Msg is WM_DRAWCLIPBOARD) {
+                    SendMessage(nextHandle, m.Msg, m.WParam, m.LParam);
+                    proc();
+                } else if (m.Msg is WM_CHANGECBCHAIN) {
+                    if (m.WParam == nextHandle) {
+                        nextHandle = m.LParam;
+                    } else {
+                        SendMessage(nextHandle, m.Msg, m.WParam, m.LParam);
+                    }
+                }
+                base.WndProc(ref m);
+            }
+
+            protected override void Dispose(bool disposing)
+            {
+                ChangeClipboardChain(this.Handle, nextHandle);
+                base.Dispose(disposing);
+            }
+        }
+    }
 }
+

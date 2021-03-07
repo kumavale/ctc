@@ -35,7 +35,6 @@ namespace ctc
             this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,11 +69,6 @@ namespace ctc
             this.Exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -93,7 +87,6 @@ namespace ctc
         private System.Windows.Forms.ContextMenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem Settings;
         private System.Windows.Forms.ToolStripMenuItem Exit;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 
