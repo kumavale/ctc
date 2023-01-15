@@ -5,8 +5,8 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>ctc_icon.ico</ApplicationIcon>
-    <Version>0.1.0</Version>
-    <Authors>kmgy</Authors>
+    <Version>0.2.0</Version>
+    <Authors>kumavale</Authors>
     <Company>kumavale</Company>
     <Description>Capture The Clipboard</Description>
     <RepositoryUrl>https://github.com/kumavale/ctc</RepositoryUrl>

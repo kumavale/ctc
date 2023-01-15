@@ -138,7 +138,7 @@ namespace ctc
             this.type_bmp.AutoSize = true;
             this.type_bmp.Location = new System.Drawing.Point(6, 22);
             this.type_bmp.Name = "type_bmp";
-            this.type_bmp.Size = new System.Drawing.Size(50, 19);
+            this.type_bmp.Size = new System.Drawing.Size(49, 19);
             this.type_bmp.TabIndex = 0;
             this.type_bmp.Text = "bmp";
             this.type_bmp.UseVisualStyleBackColor = true;
@@ -391,8 +391,8 @@ namespace ctc
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(69, 23);
             this.numericUpDown2.TabIndex = 6;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.apply_button_enable);
             this.numericUpDown2.TextChanged += new System.EventHandler(this.apply_button_enable);
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // label9
             // 
@@ -455,15 +455,15 @@ namespace ctc
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(69, 23);
             this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.apply_button_enable);
             this.numericUpDown1.TextChanged += new System.EventHandler(this.apply_button_enable);
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.apply_button_enable);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(3, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 15);
+            this.label7.Size = new System.Drawing.Size(99, 15);
             this.label7.TabIndex = 0;
             this.label7.Text = "Current sequence";
             // 
@@ -490,7 +490,7 @@ namespace ctc
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(56, 87);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(186, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(184, 15);
             this.linkLabel1.TabIndex = 14;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://github.com/kumavale/ctc";
@@ -501,9 +501,9 @@ namespace ctc
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(57, 68);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.Size = new System.Drawing.Size(57, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "kmgy";
+            this.label6.Text = "kumavale";
             // 
             // label5
             // 
