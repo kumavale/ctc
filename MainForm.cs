@@ -17,7 +17,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace ctc
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public static ImageFormat FILE_TYPE = ImageFormat.Jpeg;
         public static byte LOCATION_TYPE = 0;  // My Pictures
@@ -30,10 +30,10 @@ namespace ctc
             new Token(TokenKind.Sequence),
         };
 
-        private static Form2 SETTING_FORM = null;
+        private static SettingForm SETTING_FORM = null;
         private static ClipBoardWatcher CBW;
 
-        public Form1()
+        public MainForm()
         {
             // load settings
             LOCATION = Properties.Settings.Default.location;
@@ -84,7 +84,7 @@ namespace ctc
         private void Settings_Click(object sender, EventArgs e)
         {
             if (SETTING_FORM is null || SETTING_FORM.IsDisposed) {
-                SETTING_FORM = new Form2();
+                SETTING_FORM = new SettingForm();
                 SETTING_FORM.Show();
             } else {
                 SETTING_FORM.TopMost = true;

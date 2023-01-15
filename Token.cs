@@ -42,14 +42,14 @@ namespace ctc
 
         static public bool tokenize(string format)
         {
-            List<Token> old_tokens = Form1.TOKENS;
-            Form1.TOKENS.Clear();
+            List<Token> old_tokens = MainForm.TOKENS;
+            MainForm.TOKENS.Clear();
             char[] f = format.ToCharArray();
             char[] invalid_chars = System.IO.Path.GetInvalidFileNameChars();
 
             void invalid_format() {
                 MessageBox.Show("invalid format: " + format);
-                Form1.TOKENS = old_tokens;
+                MainForm.TOKENS = old_tokens;
             }
 
             for (uint idx = 0; idx < f.Length; ++idx) {
@@ -63,15 +63,15 @@ namespace ctc
                         return false;
                     }
                     switch (keyword) {
-                        case "sequence": Form1.TOKENS.Add(new Token(TokenKind.Sequence));    break;
-                        case "rand":     Form1.TOKENS.Add(new Token(TokenKind.Random));      break;
-                        case "Year":     Form1.TOKENS.Add(new Token(TokenKind.Year));        break;
-                        case "Month":    Form1.TOKENS.Add(new Token(TokenKind.Month));       break;
-                        case "Day":      Form1.TOKENS.Add(new Token(TokenKind.Day));         break;
-                        case "hour":     Form1.TOKENS.Add(new Token(TokenKind.Hour));        break;
-                        case "min":      Form1.TOKENS.Add(new Token(TokenKind.Minute));      break;
-                        case "sec":      Form1.TOKENS.Add(new Token(TokenKind.Second));      break;
-                        case "msec":     Form1.TOKENS.Add(new Token(TokenKind.MilliSecond)); break;
+                        case "sequence": MainForm.TOKENS.Add(new Token(TokenKind.Sequence));    break;
+                        case "rand":     MainForm.TOKENS.Add(new Token(TokenKind.Random));      break;
+                        case "Year":     MainForm.TOKENS.Add(new Token(TokenKind.Year));        break;
+                        case "Month":    MainForm.TOKENS.Add(new Token(TokenKind.Month));       break;
+                        case "Day":      MainForm.TOKENS.Add(new Token(TokenKind.Day));         break;
+                        case "hour":     MainForm.TOKENS.Add(new Token(TokenKind.Hour));        break;
+                        case "min":      MainForm.TOKENS.Add(new Token(TokenKind.Minute));      break;
+                        case "sec":      MainForm.TOKENS.Add(new Token(TokenKind.Second));      break;
+                        case "msec":     MainForm.TOKENS.Add(new Token(TokenKind.MilliSecond)); break;
                         default:
                             invalid_format();
                             return false;
@@ -88,10 +88,10 @@ namespace ctc
                 int invalid_idx = str.IndexOfAny(invalid_chars);
                 if (0 <= invalid_idx) {
                     MessageBox.Show("invalid charactor: '" + str[invalid_idx] + "'");
-                    Form1.TOKENS = old_tokens;
+                    MainForm.TOKENS = old_tokens;
                     return false;
                 }
-                Form1.TOKENS.Add(new Token(TokenKind.String, str));
+                MainForm.TOKENS.Add(new Token(TokenKind.String, str));
             }
 
             return true;
@@ -102,10 +102,10 @@ namespace ctc
             string filename = null;
             var now = DateTime.Now;
 
-            foreach (Token token in Form1.TOKENS) {
+            foreach (Token token in MainForm.TOKENS) {
                 switch (token.kind) {
                     case TokenKind.String:      filename += token.str;       break;
-                    case TokenKind.Sequence:    filename += $"{Form1.SEQUENCE++}".PadLeft(Form1.DIGITS_OF_SEQUENCE, '0'); break;
+                    case TokenKind.Sequence:    filename += $"{MainForm.SEQUENCE++}".PadLeft(MainForm.DIGITS_OF_SEQUENCE, '0'); break;
                     case TokenKind.Random:      filename += random_string(); break;
                     case TokenKind.Year:        filename += now.Year;        break;
                     case TokenKind.Month:       filename += now.Month;       break;
@@ -119,13 +119,13 @@ namespace ctc
 
             // Append extension
             filename += ".";
-            if (Form1.FILE_TYPE == ImageFormat.Bmp) {
+            if (MainForm.FILE_TYPE == ImageFormat.Bmp) {
                 filename += "bmp";
-            } else if (Form1.FILE_TYPE == ImageFormat.Png) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Png) {
                 filename += "png";
-            } else if (Form1.FILE_TYPE == ImageFormat.Jpeg) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Jpeg) {
                 filename += "jpg";
-            } else if (Form1.FILE_TYPE == ImageFormat.Gif) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Gif) {
                 filename += "gif";
             } else {
                 // unreachable
@@ -138,7 +138,7 @@ namespace ctc
         private static string random_string()
         {
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, Form1.DIGITS_OF_RAND)
+            return new string(Enumerable.Repeat(chars, MainForm.DIGITS_OF_RAND)
                 .Select(s => s[RAND.Next(s.Length)]).ToArray());
         }
     }

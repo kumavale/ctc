@@ -1,7 +1,7 @@
 ﻿
 namespace ctc
 {
-    partial class Form2
+    partial class SettingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ctc
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.FileType = new System.Windows.Forms.GroupBox();
             this.type_gif = new System.Windows.Forms.RadioButton();
             this.type_jpg = new System.Windows.Forms.RadioButton();

@@ -15,9 +15,9 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace ctc
 {
-    public partial class Form2 : Form
+    public partial class SettingForm : Form
     {
-        public Form2()
+        public SettingForm()
         {
             InitializeComponent();
             load_setting();
@@ -31,7 +31,7 @@ namespace ctc
 
         public void reflect_sequence()
         {
-            numericUpDown1.Value = Form1.SEQUENCE;
+            numericUpDown1.Value = MainForm.SEQUENCE;
         }
 
         // OK
@@ -64,66 +64,66 @@ namespace ctc
 
             // Apply location
             if (radioButton1.Checked) {
-                Form1.LOCATION_TYPE = 0;
-                Form1.LOCATION = @"%userprofile%\Pictures\";
+                MainForm.LOCATION_TYPE = 0;
+                MainForm.LOCATION = @"%userprofile%\Pictures\";
             } else if (radioButton2.Checked) {
-                Form1.LOCATION_TYPE = 1;
-                Form1.LOCATION = @"%userprofile%\Desktop\";
+                MainForm.LOCATION_TYPE = 1;
+                MainForm.LOCATION = @"%userprofile%\Desktop\";
             } else if (radioButton3.Checked) {
-                Form1.LOCATION_TYPE = 2;
+                MainForm.LOCATION_TYPE = 2;
             } else if (radioButton4.Checked) {
-                Form1.LOCATION_TYPE = 3;
+                MainForm.LOCATION_TYPE = 3;
                 if (!System.IO.Directory.Exists(location.Text)) {
                     MessageBox.Show("invalid location: " + location.Text);
                     return false;
                 }
-                Form1.LOCATION = location.Text;
-                if (Form1.LOCATION.Last() is not '\\') {
-                    Form1.LOCATION += '\\';
+                MainForm.LOCATION = location.Text;
+                if (MainForm.LOCATION.Last() is not '\\') {
+                    MainForm.LOCATION += '\\';
                 }
             }
-            Form1.LOCATION = Environment.ExpandEnvironmentVariables(Form1.LOCATION);
+            MainForm.LOCATION = Environment.ExpandEnvironmentVariables(MainForm.LOCATION);
 
             // Apply filetype
             string filetype = null;
             if (type_bmp.Checked) {
                 filetype = "bmp";
-                Form1.FILE_TYPE = ImageFormat.Bmp;
+                MainForm.FILE_TYPE = ImageFormat.Bmp;
             } else if (type_png.Checked) {
                 filetype = "png";
-                Form1.FILE_TYPE = ImageFormat.Png;
+                MainForm.FILE_TYPE = ImageFormat.Png;
             } else if (type_jpg.Checked) {
                 filetype = "jpg";
-                Form1.FILE_TYPE = ImageFormat.Jpeg;
+                MainForm.FILE_TYPE = ImageFormat.Jpeg;
             } else if (type_gif.Checked) {
                 filetype = "gif";
-                Form1.FILE_TYPE = ImageFormat.Gif;
+                MainForm.FILE_TYPE = ImageFormat.Gif;
             }
 
             // Apply sequence number
-            Form1.SEQUENCE = (uint)numericUpDown1.Value;
+            MainForm.SEQUENCE = (uint)numericUpDown1.Value;
 
             // Apply digits of sequence number
             switch (comboBox1.Text) {
-                case "Auto": Form1.DIGITS_OF_SEQUENCE = 0; break;
-                default:     Form1.DIGITS_OF_SEQUENCE = byte.Parse(comboBox1.Text); break;
+                case "Auto": MainForm.DIGITS_OF_SEQUENCE = 0; break;
+                default:     MainForm.DIGITS_OF_SEQUENCE = byte.Parse(comboBox1.Text); break;
             }
 
             // Apply digits of random
-            Form1.DIGITS_OF_RAND = (byte)numericUpDown2.Value;
+            MainForm.DIGITS_OF_RAND = (byte)numericUpDown2.Value;
 
             // Apply ask overwritten
-            Form1.ASK_OVERWRITTEN = checkBox1.Checked;
+            MainForm.ASK_OVERWRITTEN = checkBox1.Checked;
 
             // Save
             Properties.Settings.Default.location           = location.Text;
-            Properties.Settings.Default.location_type      = Form1.LOCATION_TYPE;
+            Properties.Settings.Default.location_type      = MainForm.LOCATION_TYPE;
             Properties.Settings.Default.filetype           = filetype;
             Properties.Settings.Default.filename_format    = filename_format.Text;
-            Properties.Settings.Default.sequence           = Form1.SEQUENCE;
-            Properties.Settings.Default.digits_of_sequence = Form1.DIGITS_OF_SEQUENCE;
-            Properties.Settings.Default.digits_of_rand     = Form1.DIGITS_OF_RAND;
-            Properties.Settings.Default.ask_overwritten    = Form1.ASK_OVERWRITTEN;
+            Properties.Settings.Default.sequence           = MainForm.SEQUENCE;
+            Properties.Settings.Default.digits_of_sequence = MainForm.DIGITS_OF_SEQUENCE;
+            Properties.Settings.Default.digits_of_rand     = MainForm.DIGITS_OF_RAND;
+            Properties.Settings.Default.ask_overwritten    = MainForm.ASK_OVERWRITTEN;
             Properties.Settings.Default.Save();
 
             button3.Enabled = false;
@@ -133,34 +133,34 @@ namespace ctc
         private void load_setting() {
             location.Text = Properties.Settings.Default.location;
 
-            if (Form1.LOCATION_TYPE == 0) { radioButton1.Checked = true; }
-            else if (Form1.LOCATION_TYPE == 1) { radioButton2.Checked = true; }
-            else if (Form1.LOCATION_TYPE == 2) { radioButton3.Checked = true; }
-            else if (Form1.LOCATION_TYPE == 3) { radioButton4.Checked = true; }
+            if (MainForm.LOCATION_TYPE == 0) { radioButton1.Checked = true; }
+            else if (MainForm.LOCATION_TYPE == 1) { radioButton2.Checked = true; }
+            else if (MainForm.LOCATION_TYPE == 2) { radioButton3.Checked = true; }
+            else if (MainForm.LOCATION_TYPE == 3) { radioButton4.Checked = true; }
 
-            if (Form1.FILE_TYPE == ImageFormat.Bmp) {
+            if (MainForm.FILE_TYPE == ImageFormat.Bmp) {
                 type_bmp.Checked = true;
-            } else if (Form1.FILE_TYPE == ImageFormat.Png) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Png) {
                 type_png.Checked = true;
-            } else if (Form1.FILE_TYPE == ImageFormat.Jpeg) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Jpeg) {
                 type_jpg.Checked = true;
-            } else if (Form1.FILE_TYPE == ImageFormat.Gif) {
+            } else if (MainForm.FILE_TYPE == ImageFormat.Gif) {
                 type_gif.Checked = true;
             }
 
             filename_format.Text = Properties.Settings.Default.filename_format;
             filename_format.SelectionStart = filename_format.Text.Length;
 
-            numericUpDown1.Value = Form1.SEQUENCE;
+            numericUpDown1.Value = MainForm.SEQUENCE;
 
-            switch (Form1.DIGITS_OF_SEQUENCE) {
+            switch (MainForm.DIGITS_OF_SEQUENCE) {
                 case 0:  comboBox1.Text = "Auto"; break;
-                default: comboBox1.Text = Form1.DIGITS_OF_SEQUENCE.ToString(); break;
+                default: comboBox1.Text = MainForm.DIGITS_OF_SEQUENCE.ToString(); break;
             }
 
-            numericUpDown2.Value = Form1.DIGITS_OF_RAND;
+            numericUpDown2.Value = MainForm.DIGITS_OF_RAND;
 
-            checkBox1.Checked = Form1.ASK_OVERWRITTEN;
+            checkBox1.Checked = MainForm.ASK_OVERWRITTEN;
         }
 
         private void component_button_Click(object sender, EventArgs e)

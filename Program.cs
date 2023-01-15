@@ -17,7 +17,7 @@ namespace ctc
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 _ = new Form1();
+            MainForm _ = new MainForm();
             Application.Run();
         }
     }
