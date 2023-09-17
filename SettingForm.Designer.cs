@@ -177,7 +177,7 @@ namespace ctc
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(6, 71);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(138, 19);
+            this.radioButton3.Size = new System.Drawing.Size(137, 19);
             this.radioButton3.TabIndex = 4;
             this.radioButton3.Text = "Ask where to save file";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -408,7 +408,7 @@ namespace ctc
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(3, 91);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(223, 19);
+            this.checkBox1.Size = new System.Drawing.Size(222, 19);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Ask if you want to overwritten the file";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -606,7 +606,7 @@ namespace ctc
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form2
+            // SettingForm
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -621,7 +621,7 @@ namespace ctc
             this.Controls.Add(this.FileType);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form2";
+            this.Name = "SettingForm";
             this.Text = "CTC - Settings";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
