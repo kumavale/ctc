@@ -104,16 +104,16 @@ namespace ctc
 
             foreach (Token token in MainForm.TOKENS) {
                 switch (token.kind) {
-                    case TokenKind.String:      filename += token.str;       break;
+                    case TokenKind.String:      filename += token.str; break;
                     case TokenKind.Sequence:    filename += $"{MainForm.SEQUENCE++}".PadLeft(MainForm.DIGITS_OF_SEQUENCE, '0'); break;
                     case TokenKind.Random:      filename += random_string(); break;
-                    case TokenKind.Year:        filename += now.Year;        break;
-                    case TokenKind.Month:       filename += now.Month;       break;
-                    case TokenKind.Day:         filename += now.Day;         break;
-                    case TokenKind.Hour:        filename += now.Hour;        break;
-                    case TokenKind.Minute:      filename += now.Minute;      break;
-                    case TokenKind.Second:      filename += now.Second;      break;
-                    case TokenKind.MilliSecond: filename += now.Millisecond; break;
+                    case TokenKind.Year:        filename += String.Format("{0:0000}", now.Year);        break;
+                    case TokenKind.Month:       filename += String.Format("{0:00}",   now.Month);       break;
+                    case TokenKind.Day:         filename += String.Format("{0:00}",   now.Day);         break;
+                    case TokenKind.Hour:        filename += String.Format("{0:00}",   now.Hour);        break;
+                    case TokenKind.Minute:      filename += String.Format("{0:00}",   now.Minute);      break;
+                    case TokenKind.Second:      filename += String.Format("{0:00}",   now.Second);      break;
+                    case TokenKind.MilliSecond: filename += String.Format("{0:000}",  now.Millisecond); break;
                 }
             }
 
